@@ -1,5 +1,5 @@
 
-# Privesc with sudo find
+# Privesc with sudo permission
 
 For this practical class, I have a direct SSH access with a low privilege account.
 
