@@ -19,6 +19,7 @@ For this practical class, I simply use wireshark on my network.
 The TLS handshake begins with a ClientHello (sent by the client) and a ServerHello (sent by the server). 
 These messages set the foundation for the encrypted session.
 Filter to use in Wireshark: tls.handshake
+
 Here is my ClientHello :
 
 <img width="1862" height="1113" alt="TP Client Hello" src="https://github.com/user-attachments/assets/30e4b595-f571-4f22-a9cc-d85197c29541" />
