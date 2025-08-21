@@ -75,6 +75,9 @@ The server then selects one version in the ServerHello, ensuring both parties us
 If a server still accepted TLS 1.0, it would create a serious security risk: this version is outdated, weak against modern attacks, and lacks strong cryptographic protections. 
 An attacker could exploit vulnerabilities to downgrade the connection or decrypt sensitive data.
 
+---
+
+```text
 Client                          Server
   | ---- ClientHello ---------> |
   |   supported_versions:       |
@@ -84,6 +87,7 @@ Client                          Server
   |   selected_version: TLS1.3  |
   |                             |
   | (If TLS1.0 accepted → risk) |
+
 
 
 
