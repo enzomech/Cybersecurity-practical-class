@@ -10,17 +10,14 @@ For this practical class, I simply use wireshark on my network.
 1. [Handshake messages](#Handshake-messages)
 2. [Protocol version & cipher suites](#Protocol-version-&-cipher-suites)
 3. [Key negotiation](#Key-negotiation)
-4. [](#)
-5. [](#)
-6. [](#)
-7. [](#)
-8. [](#)
+4. [Supported version analyse](#Supported-version-analyse)
 
 ---
 
 ## Handshake messages
 
-The TLS handshake begins with a ClientHello (sent by the client) and a ServerHello (sent by the server). These messages set the foundation for the encrypted session.
+The TLS handshake begins with a ClientHello (sent by the client) and a ServerHello (sent by the server). 
+These messages set the foundation for the encrypted session.
 Filter to use in Wireshark: tls.handshake
 Here is my ClientHello :
 
@@ -63,7 +60,30 @@ Wireshark only shows the public values, not the final secret.
 ---
 
 
+## Transition to encrypted traffic
 
+Immediately after the ServerHello, the handshake continues with encrypted messages (e.g., EncryptedExtensions, Finished). 
+This confirms that key exchange worked, and from this point, application data (like HTTP) is protected.
+
+---
+
+
+## Supported version analyse
+
+The field supported_versions in the ClientHello lists all TLS protocol versions the client can handle (e.g., TLS 1.2, TLS 1.3). 
+The server then selects one version in the ServerHello, ensuring both parties use a common and secure protocol.
+If a server still accepted TLS 1.0, it would create a serious security risk: this version is outdated, weak against modern attacks, and lacks strong cryptographic protections. 
+An attacker could exploit vulnerabilities to downgrade the connection or decrypt sensitive data.
+
+Client                          Server
+  | ---- ClientHello ---------> |
+  |   supported_versions:       |
+  |   [TLS1.3, TLS1.2]          |
+  |                             |
+  | <----- ServerHello -------- |
+  |   selected_version: TLS1.3  |
+  |                             |
+  | (If TLS1.0 accepted → risk) |
 
 
 
