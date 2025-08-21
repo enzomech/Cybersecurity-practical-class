@@ -87,8 +87,4 @@ Client                          Server
   |   selected_version: TLS1.3  |
   |                             |
   | (If TLS1.0 accepted → risk) |
-
-
-
-
-
+```
