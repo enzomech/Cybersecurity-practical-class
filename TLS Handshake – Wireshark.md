@@ -18,6 +18,7 @@ For this practical class, I simply use wireshark on my network.
 
 The TLS handshake begins with a ClientHello (sent by the client) and a ServerHello (sent by the server). 
 These messages set the foundation for the encrypted session.
+
 Filter to use in Wireshark: tls.handshake
 
 Here is my ClientHello :
@@ -31,6 +32,7 @@ Here is my ClientHello :
 
 ClientHello: proposes a list of supported protocol versions (e.g., TLS 1.2, TLS 1.3) and available cipher suites (AES, ChaCha20, etc.).
 ServerHello: selects exactly one version and one cipher suite from the client’s list.
+
 Here is my ServerHello :
 
 <img width="1881" height="581" alt="TP Server Hello" src="https://github.com/user-attachments/assets/db710cd5-accc-4176-9d0f-55cc234160d4" />
